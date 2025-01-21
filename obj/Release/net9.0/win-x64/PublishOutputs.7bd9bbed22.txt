@@ -1,0 +1,2 @@
+C:\VsWorkSpace\SaveClipboard\bin\Release\net9.0\publish\win-x64\SaveClipboard.pdb
+C:\VsWorkSpace\SaveClipboard\bin\Release\net9.0\publish\win-x64\SaveClipboard.exe
