@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Channels;
 
 namespace SaveClipboard.Visitors;
@@ -7,18 +6,40 @@ internal sealed class ClipboardDataKeeper : ClipboardDataVisitor
 {
     private ClipboardData? _lastClipboardData;
 
+    private Channel<(ForegroundWindowwInfo, ClipboardData)> _channel = Channel.CreateUnbounded<(ForegroundWindowwInfo, ClipboardData)>();
+    public ClipboardDataKeeper()
+    {
+        _ = Task.Factory.StartNew(Saving, TaskCreationOptions.LongRunning);
+    }
+
     public override void VisitClipboardData(ClipboardData clipboardData)
     {
         if (_lastClipboardData == clipboardData)
+        {
+            System.Console.WriteLine("Clipboard data is the same as the last one, skip saving.");
             return;
+        }
 
-        int windowId = SaveWindowInfo();
+        // int windowId = SaveWindowInfo();
 
-        int recordId = SaveClipboardData(in clipboardData, windowId);
+        // int recordId = SaveClipboardData(in clipboardData, windowId);
 
-        _lastClipboardData = clipboardData;
+        // _lastClipboardData = clipboardData;
 
-        System.Console.WriteLine($"Clipboard data saved, record \n {clipboardData} \n");
+        // System.Console.WriteLine($"Clipboard data saved, record \n {clipboardData} \n");
+
+        _channel.Writer.TryWrite((GetForegroundWindowInfo(), clipboardData));
+    }
+
+    async Task Saving()
+    {
+        await foreach (var data in _channel.Reader.ReadAllAsync())
+        {
+            SaveClipboardData(in data.Item2, 0);
+
+            _lastClipboardData = data.Item2;
+            System.Console.WriteLine($"Saving clipboard data: {data.Item2} from window: {data.Item1.Title}");
+        }
     }
 
     int SaveClipboardData(in ClipboardData clipboardData, int windowId)
@@ -36,6 +57,7 @@ internal sealed class ClipboardDataKeeper : ClipboardDataVisitor
             }
         };
 
+        Thread.Sleep(TimeSpan.FromSeconds(3));
         return 0;
     }
 

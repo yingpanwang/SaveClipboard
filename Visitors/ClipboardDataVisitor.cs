@@ -2,7 +2,6 @@ using SaveClipboard.Visitors;
 
 abstract class ClipboardDataVisitor : IClipboardDataVisitor
 {
-
     public virtual void VisitClipboardData(ClipboardData clipboardData)
     {
         if (clipboardData is ClipboardTextData textData)
@@ -72,7 +71,6 @@ abstract class ClipboardDataVisitor : IClipboardDataVisitor
 
         NativeMethod.Process.GetModuleFileNameEx(processHandle, IntPtr.Zero, executablePath, executablePath.Capacity);
 
-
         return new ForegroundWindowwInfo(
             GetForegroundWindowTitle(foregroundWindow),
             GetForegroundWindowProcessId(foregroundWindow),
@@ -80,5 +78,4 @@ abstract class ClipboardDataVisitor : IClipboardDataVisitor
             executablePath.ToString()
         );
     }
-
 }
