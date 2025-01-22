@@ -107,13 +107,15 @@ internal static class Clipboard
     /// 枚举剪贴板中所有可用的数据格式
     /// </summary>
     /// <returns>剪贴板格式枚举器</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IEnumerable<ClipboardFormat> EnumClipboardFormats()
     {
         uint format = 0;
         while ((format = NativeMethod.EnumClipboardFormats(format)) != 0)
         {
-            yield return (ClipboardFormat)format;
+            if (Enum.IsDefined(typeof(ClipboardFormat), format))
+            {
+                yield return (ClipboardFormat)format;
+            }
         }
     }
 }
