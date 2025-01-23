@@ -1,12 +1,18 @@
 
+using System.Data;
 using SaveClipboard.Visitors;
+using Npgsql;
+
+IDbConnection dbConnection = new NpgsqlConnection("Host=127.0.0.1;Port=5432;Database=clipboarddatahistory;Username=postgres;Password=postgres");
+dbConnection.Open();
+
+IClipboardDataRepository clipboardDataRepository = new ClipboardDataRepository(dbConnection);
 
 ClipboardListener l = new(
    IntPtr.Zero,
    [
        new DebugClipboardDataVisitor(),
-       new ClipboardDataKeeper()
-      // new ClipboardUrlDataVisitor(x => x.Host.Equals("www.baidu.com", StringComparison.OrdinalIgnoreCase))
+       new ClipboardDataKeeper(clipboardDataRepository)
    ]);
 
 

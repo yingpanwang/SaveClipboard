@@ -19,3 +19,5 @@ c:\VsWorkSpace\SaveClipboard\obj\Debug\net8.0\refint\SaveClipboard.dll
 c:\VsWorkSpace\SaveClipboard\obj\Debug\net8.0\SaveClipboard.pdb
 c:\VsWorkSpace\SaveClipboard\obj\Debug\net8.0\SaveClipboard.genruntimeconfig.cache
 c:\VsWorkSpace\SaveClipboard\obj\Debug\net8.0\ref\SaveClipboard.dll
+c:\VsWorkSpace\SaveClipboard\bin\Debug\net8.0\Dapper.dll
+c:\VsWorkSpace\SaveClipboard\bin\Debug\net8.0\Npgsql.dll

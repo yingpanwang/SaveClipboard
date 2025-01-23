@@ -1,4 +1,6 @@
+using System.Data;
 using System.Threading.Channels;
+using Dapper;
 
 namespace SaveClipboard.Visitors;
 
@@ -6,48 +8,74 @@ internal sealed class ClipboardDataKeeper : ClipboardDataVisitor
 {
     private ClipboardData? _lastClipboardData;
 
-    private Channel<(ForegroundWindowwInfo, ClipboardData)> _channel = Channel.CreateUnbounded<(ForegroundWindowwInfo, ClipboardData)>();
-    public ClipboardDataKeeper()
+    private readonly IClipboardDataRepository _repository;
+
+    private readonly Channel<(ForegroundWindowwInfo wnd, ClipboardData data)> _channel
+        = Channel.CreateUnbounded<(ForegroundWindowwInfo wnd, ClipboardData data)>();
+
+    public ClipboardDataKeeper(IClipboardDataRepository repository)
     {
+        _repository = repository;
         _ = Task.Factory.StartNew(Saving, TaskCreationOptions.LongRunning);
     }
 
     public override void VisitClipboardData(ClipboardData clipboardData)
     {
         if (_lastClipboardData == clipboardData)
-        {
-            System.Console.WriteLine("Clipboard data is the same as the last one, skip saving.");
             return;
-        }
-
-        // int windowId = SaveWindowInfo();
-
-        // int recordId = SaveClipboardData(in clipboardData, windowId);
-
-        // _lastClipboardData = clipboardData;
-
-        // System.Console.WriteLine($"Clipboard data saved, record \n {clipboardData} \n");
 
         _channel.Writer.TryWrite((GetForegroundWindowInfo(), clipboardData));
     }
 
     async Task Saving()
     {
-        await foreach (var data in _channel.Reader.ReadAllAsync())
+        await foreach (var (wnd, data) in _channel.Reader.ReadAllAsync())
         {
-            SaveClipboardData(in data.Item2, 0);
+            await _repository.UsingTransaction(async transaction =>
+            {
+                int windowId = await _repository.SaveWindowInfo(wnd);
 
-            _lastClipboardData = data.Item2;
-            System.Console.WriteLine($"Saving clipboard data: {data.Item2} from window: {data.Item1.Title}");
+                int recordId = await _repository.SaveClipboardData(data, windowId);
+            });
+
+            _lastClipboardData = data;
+        }
+    }
+}
+
+internal interface IClipboardDataRepository
+{
+    Task UsingTransaction(Func<IDbTransaction, Task> action, IsolationLevel isolationLevel = IsolationLevel.Unspecified);
+    Task<int> SaveClipboardData(ClipboardData clipboardData, int windowId);
+    Task<int> SaveWindowInfo(ForegroundWindowwInfo windowInfo);
+}
+
+internal class ClipboardDataRepository(IDbConnection dbConnection) : IClipboardDataRepository
+{
+    private readonly IDbConnection _dbConnection = dbConnection;
+
+    public async Task UsingTransaction(Func<IDbTransaction, Task> action, IsolationLevel isolationLevel = IsolationLevel.Unspecified)
+    {
+        using var transaction = _dbConnection.BeginTransaction(isolationLevel);
+        try
+        {
+            await action(transaction);
+
+            transaction.Commit();
+        }
+        catch (Exception)
+        {
+            transaction.Rollback();
+            throw;
         }
     }
 
-    int SaveClipboardData(in ClipboardData clipboardData, int windowId)
+    public Task<int> SaveClipboardData(ClipboardData clipboardData, int windowId)
     {
         ClipboardDataRecord record = new()
         {
             CreateTime = DateTime.Now,
-            DataType = (int)clipboardData.Format,
+            DataType = clipboardData.Format == ClipboardFormat.Unknown ? -1 : (int)clipboardData.Format,
             WndId = windowId,
             DataValue = clipboardData switch
             {
@@ -57,36 +85,42 @@ internal sealed class ClipboardDataKeeper : ClipboardDataVisitor
             }
         };
 
-        Thread.Sleep(TimeSpan.FromSeconds(3));
-        return 0;
+        return _dbConnection.ExecuteScalarAsync<int>("""
+            INSERT INTO clipboarddatarecord (
+                createtime, 
+                datatype, 
+                wndid, 
+                datavalue
+            ) 
+            VALUES (
+                NOW(), 
+                @datatype, 
+                @wndid, 
+                @datavalue
+            ) 
+            RETURNING id
+        """, record);
     }
 
-    int SaveWindowInfo()
+    public async Task<int> SaveWindowInfo(ForegroundWindowwInfo windowInfo)
     {
-        var windowInfo = GetForegroundWindowInfo();
+        int id = await _dbConnection.ExecuteScalarAsync<int>("""
+            INSERT INTO foregroundwindowhistory (
+                createtime, 
+                title, 
+                classname, 
+                executablepath
+            ) 
+            VALUES (
+                NOW(), 
+                @title, 
+                @classname, 
+                @executablepath
+            ) 
+            RETURNING id
+        """, new { title = windowInfo.Title, classname = windowInfo.ClassName, executablepath = windowInfo.ExecutablePath });
 
-        if (windowInfo == default)
-            return default;
-
-
-        FileInfo? fileInfo = null;
-        if (!string.IsNullOrEmpty(windowInfo.ExecutablePath) && File.Exists(windowInfo.ExecutablePath))
-        {
-            fileInfo = new FileInfo(windowInfo.ExecutablePath);
-        }
-
-        var record = new ForegroundWindowHistory
-        {
-            CreateTime = DateTime.Now,
-            Title = windowInfo.Title,
-            ClassName = windowInfo.ClassName,
-            ExecutablePath = fileInfo?.FullName ?? string.Empty,
-            ProcessName = fileInfo?.Name ?? string.Empty
-        };
-
-        System.Console.WriteLine(record);
-
-        return 0;
+        return id;
     }
 }
 
@@ -99,7 +133,6 @@ internal record ForegroundWindowwInfo(
 
 file record ClipboardDataRecord
 {
-
     /* 
         CREATE TABLE clipboarddatarecord(
             id integer GENERATED ALWAYS AS IDENTITY NOT NULL,

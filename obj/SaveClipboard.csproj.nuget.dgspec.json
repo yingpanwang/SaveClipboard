@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.csproj": {}
+    "c:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.csproj": {}
   },
   "projects": {
-    "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.csproj": {
+    "c:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.csproj",
+        "projectUniqueName": "c:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.csproj",
         "projectName": "SaveClipboard",
-        "projectPath": "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.csproj",
+        "projectPath": "c:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.csproj",
         "packagesPath": "C:\\Users\\CYCY\\.nuget\\packages\\",
-        "outputPath": "C:\\VsWorkSpace\\SaveClipboard\\obj\\",
+        "outputPath": "c:\\VsWorkSpace\\SaveClipboard\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,14 +43,22 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "System.Drawing.Common": {
               "target": "Package",
               "version": "[9.0.1, )"
@@ -72,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200-preview.0.25057.12/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

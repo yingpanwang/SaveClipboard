@@ -1,5 +1,6 @@
 public enum ClipboardFormat : uint
 {
+    Unknown = uint.MaxValue,
     /// <summary>
     /// 文本格式
     /// </summary>
@@ -39,5 +40,5 @@ public enum ClipboardFormat : uint
     CF_PRIVATEFIRST = 0x0200,
     CF_PRIVATELAST = 0x02FF,
     CF_GDIOBJFIRST = 0x0300,
-    CF_GDIOBJLAST = 0x03FF
+    CF_GDIOBJLAST = 0x03FF,
 }

@@ -18,29 +18,33 @@ internal static class Clipboard
 
         try
         {
+            ClipboardData? clipboardData = null;
+
             foreach (var format in EnumClipboardFormats())
             {
-                switch (format)
+                clipboardData = GetFormatData(format);
+                if (clipboardData != null)
                 {
-                    case ClipboardFormat.CF_TEXT: // CF_TEXT
-                    case ClipboardFormat.CF_UNICODETEXT: // CF_UNICODETEXT
-                        return new ClipboardTextData(GetClipboardText((uint)format), format);
-
-                    case ClipboardFormat.CF_HDROP: // CF_HDROP
-                        return new ClipboardFilesData(GetClipboardFiles(), ClipboardFormat.CF_HDROP);
-
-                    default:
-                        Console.WriteLine("未知的剪切板格式: " + format);
-                        break;
+                    break;
                 }
             }
+            return clipboardData;
         }
         finally
         {
             NativeMethod.CloseClipboard();
         }
 
-        return null;
+        static ClipboardData? GetFormatData(ClipboardFormat format)
+        {
+            return format switch
+            {
+                ClipboardFormat.CF_TEXT => new ClipboardTextData(GetClipboardText((uint)format), format),
+                ClipboardFormat.CF_UNICODETEXT => new ClipboardTextData(GetClipboardText((uint)format), format),
+                ClipboardFormat.CF_HDROP => new ClipboardFilesData(GetClipboardFiles(), format),
+                _ => null,
+            };
+        }
     }
 
     /// <summary>
@@ -115,6 +119,10 @@ internal static class Clipboard
             if (Enum.IsDefined(typeof(ClipboardFormat), format))
             {
                 yield return (ClipboardFormat)format;
+            }
+            else
+            {
+                yield return ClipboardFormat.Unknown;
             }
         }
     }

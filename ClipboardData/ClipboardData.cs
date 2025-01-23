@@ -5,3 +5,11 @@ public abstract record class ClipboardData(ClipboardFormat format)
 
     public abstract void Accept(IClipboardDataVisitor visitor);
 }
+
+sealed record class ClipboardUnknownData() : ClipboardData(ClipboardFormat.Unknown)
+{
+    public override void Accept(IClipboardDataVisitor visitor)
+    {
+        visitor.VisitClipboardData(this);
+    }
+}
