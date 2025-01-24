@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mrZMXMwWWOw=",
+  "success": true,
+  "projectFilePath": "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.Core\\SaveClipboard.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CYCY\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512"
+  ],
+  "logs": []
+}
