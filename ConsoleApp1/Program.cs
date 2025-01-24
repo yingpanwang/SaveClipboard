@@ -2,6 +2,7 @@
 
 using FlaUI.Core;
 using FlaUI.UIA3;
+using SaveClipboard;
 using System;
 
 class Program
@@ -15,18 +16,25 @@ class Program
                         new Cs()
                     ]
                 );
-
+        listener.Listen();
         Console.ReadLine();
     }
 }
 
 public class Cs : ClipboardDataVisitor
 {
+    private ClipboardContext _context;
+
+    public override void VisitClipboardData(ClipboardData clipboardData)
+    {
+        _context = clipboardData.CaptureContext;
+
+        base.VisitClipboardData(clipboardData);
+    }
+
     public override void VisitText(string text)
     {
-        base.VisitText(text);
-
-        var wind = GetForegroundWindowInfo();
+        var wind = _context.ForegroundWindowInfo;
 
         using var app = Application.Attach((int)wind.ProcessId);
 

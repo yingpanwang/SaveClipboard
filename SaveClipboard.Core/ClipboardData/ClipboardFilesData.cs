@@ -1,8 +1,13 @@
-using System.Collections.Generic;
+using SaveClipboard;
 
-public record class ClipboardFilesData(IEnumerable<string> files, ClipboardFormat format = ClipboardFormat.CF_HDROP) : ClipboardData(format)
+public record class ClipboardFilesData : ClipboardData
 {
-    public IEnumerable<string> Files { get; set; } = files;
+    public IEnumerable<string> Files { get; set; }
+
+    public ClipboardFilesData(ClipboardContext initContext, IEnumerable<string> files, ClipboardFormat format = ClipboardFormat.CF_HDROP) : base(format, initContext)
+    {
+        Files = files;
+    }
 
     public override void Accept(IClipboardDataVisitor visitor)
     {

@@ -1,3 +1,5 @@
+using SaveClipboard;
+
 /// <summary>
 /// 剪贴板操作工具类
 /// </summary>
@@ -8,7 +10,7 @@ internal static class Clipboard
     /// </summary>
     /// <returns>剪贴板数据对象,如果获取失败则返回null</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static ClipboardData? GetClipboardData()
+    internal static ClipboardData? GetClipboardData(ClipboardContext captureContext)
     {
         if (!NativeMethod.OpenClipboard(IntPtr.Zero))
         {
@@ -22,7 +24,7 @@ internal static class Clipboard
 
             foreach (var format in EnumClipboardFormats())
             {
-                clipboardData = GetFormatData(format);
+                clipboardData = GetFormatData(format, captureContext);
                 if (clipboardData != null)
                 {
                     break;
@@ -35,13 +37,13 @@ internal static class Clipboard
             NativeMethod.CloseClipboard();
         }
 
-        static ClipboardData? GetFormatData(ClipboardFormat format)
+        static ClipboardData? GetFormatData(ClipboardFormat format, ClipboardContext captureContext)
         {
             return format switch
             {
-                ClipboardFormat.CF_TEXT => new ClipboardTextData(GetClipboardText((uint)format), format),
-                ClipboardFormat.CF_UNICODETEXT => new ClipboardTextData(GetClipboardText((uint)format), format),
-                ClipboardFormat.CF_HDROP => new ClipboardFilesData(GetClipboardFiles(), format),
+                ClipboardFormat.CF_TEXT => new ClipboardTextData(captureContext, GetClipboardText((uint)format), format),
+                ClipboardFormat.CF_UNICODETEXT => new ClipboardTextData(captureContext, GetClipboardText((uint)format), format),
+                ClipboardFormat.CF_HDROP => new ClipboardFilesData(captureContext, GetClipboardFiles(), format),
                 _ => null,
             };
         }

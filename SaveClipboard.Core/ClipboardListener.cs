@@ -1,3 +1,5 @@
+using SaveClipboard;
+
 public sealed class ClipboardListener : IDisposable
 {
     const uint WM_CLIPBOARDUPDATE = 0x031D;
@@ -84,8 +86,10 @@ public sealed class ClipboardListener : IDisposable
     {
         if (msg == WM_CLIPBOARDUPDATE)
         {
+            ClipboardContext captureContext = new();
+
             // 获取剪切板内容
-            var clipboardData = Clipboard.GetClipboardData();
+            var clipboardData = Clipboard.GetClipboardData(captureContext);
             if (clipboardData != null)
             {
                 foreach (var visitor in visitors)

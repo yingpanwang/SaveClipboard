@@ -9,8 +9,8 @@ internal sealed class ClipboardDataKeeper : ClipboardDataVisitor, IDisposable
     private readonly IClipboardDataRepository _repository;
     private readonly Task _saveingTask;
 
-    private readonly Channel<(ForegroundWindowwInfo wnd, ClipboardData data)> _channel
-        = Channel.CreateUnbounded<(ForegroundWindowwInfo wnd, ClipboardData data)>(
+    private readonly Channel<(ForegroundWindowInfo wnd, ClipboardData data)> _channel
+        = Channel.CreateUnbounded<(ForegroundWindowInfo wnd, ClipboardData data)>(
             new UnboundedChannelOptions
             {
                 SingleReader = true,
@@ -29,7 +29,7 @@ internal sealed class ClipboardDataKeeper : ClipboardDataVisitor, IDisposable
         if (_lastClipboardData == clipboardData)
             return;
 
-        _channel.Writer.TryWrite((GetForegroundWindowInfo(), clipboardData));
+        _channel.Writer.TryWrite((clipboardData.CaptureContext.ForegroundWindowInfo, clipboardData));
     }
 
     async Task Saving()

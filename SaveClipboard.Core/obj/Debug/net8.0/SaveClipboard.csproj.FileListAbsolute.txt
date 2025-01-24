@@ -1,5 +1,0 @@
-C:\VsWorkSpace\SaveClipboard\SaveClipboard.Core\obj\Debug\net8.0\SaveClipboard.csproj.AssemblyReference.cache
-C:\VsWorkSpace\SaveClipboard\SaveClipboard.Core\obj\Debug\net8.0\SaveClipboard.GeneratedMSBuildEditorConfig.editorconfig
-C:\VsWorkSpace\SaveClipboard\SaveClipboard.Core\obj\Debug\net8.0\SaveClipboard.AssemblyInfoInputs.cache
-C:\VsWorkSpace\SaveClipboard\SaveClipboard.Core\obj\Debug\net8.0\SaveClipboard.AssemblyInfo.cs
-C:\VsWorkSpace\SaveClipboard\SaveClipboard.Core\obj\Debug\net8.0\SaveClipboard.csproj.CoreCompileInputs.cache

@@ -1,6 +1,13 @@
-public record class ClipboardTextData(string text, ClipboardFormat format = ClipboardFormat.CF_TEXT) : ClipboardData(format)
+using SaveClipboard;
+
+public record class ClipboardTextData : ClipboardData
 {
-    public string Text { get; set; } = text;
+    public string Text { get; set; }
+
+    public ClipboardTextData(ClipboardContext initContext, string text, ClipboardFormat format = ClipboardFormat.CF_TEXT) : base(format, initContext)
+    {
+        Text = text;
+    }
 
     public override void Accept(IClipboardDataVisitor visitor)
     {

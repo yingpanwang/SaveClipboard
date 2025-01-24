@@ -55,7 +55,7 @@ public class ClipboardDataRepository(IDbConnection dbConnection) : IClipboardDat
         """, record);
     }
 
-    public async Task<int> SaveWindowInfo(ForegroundWindowwInfo windowInfo)
+    public async Task<int> SaveWindowInfo(ForegroundWindowInfo windowInfo)
     {
         int id = await _dbConnection.ExecuteScalarAsync<int>("""
             INSERT INTO foregroundwindowhistory (
