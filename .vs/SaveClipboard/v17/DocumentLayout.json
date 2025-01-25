@@ -91,10 +91,6 @@
       "RelativeMoniker": "D:0:0:{A99CA5DB-5366-1C4D-625F-A08F7B414ED0}|SaveClipboard.Core\\SaveClipboard.csproj|solutionrelative:saveclipboard.core\\_globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A99CA5DB-5366-1C4D-625F-A08F7B414ED0}|SaveClipboard.Core\\SaveClipboard.csproj|c:\\vsworkspace\\saveclipboard\\saveclipboard.core\\gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A99CA5DB-5366-1C4D-625F-A08F7B414ED0}|SaveClipboard.Core\\SaveClipboard.csproj|solutionrelative:saveclipboard.core\\gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A99CA5DB-5366-1C4D-625F-A08F7B414ED0}|SaveClipboard.Core\\SaveClipboard.csproj|c:\\vsworkspace\\saveclipboard\\saveclipboard.core\\saveclipboard.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A99CA5DB-5366-1C4D-625F-A08F7B414ED0}|SaveClipboard.Core\\SaveClipboard.csproj|solutionrelative:saveclipboard.core\\saveclipboard.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -136,8 +132,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\ClipboardData\\ClipboardTextData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:03:15.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T08:03:15.879Z"
             },
             {
               "$type": "Document",
@@ -149,8 +144,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\ClipboardData\\ClipboardFilesData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T02:55:47.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:55:47.579Z"
             },
             {
               "$type": "Document",
@@ -162,8 +156,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\ClipboardData\\ClipboardData.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:00:46.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T08:00:46.832Z"
             },
             {
               "$type": "Document",
@@ -175,8 +168,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Clipboard.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T02:57:25.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:57:25.813Z"
             },
             {
               "$type": "Document",
@@ -188,8 +180,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\ClipboardFormat.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAA+wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T03:23:05.503Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T03:23:05.503Z"
             },
             {
               "$type": "Document",
@@ -201,8 +192,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\ClipboardListener.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAIA1wFsAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T02:56:00.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:56:00.06Z"
             },
             {
               "$type": "Document",
@@ -212,7 +202,7 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
               "ToolTip": "C:\\VsWorkSpace\\SaveClipboard\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "ConsoleApp1\\Program.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAywAsAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAywBwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-24T02:50:35.532Z",
               "EditorCaption": ""
@@ -227,8 +217,7 @@
               "RelativeToolTip": "ConsoleApp1\\ConsoleApp1.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-24T02:52:00.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:52:00.323Z"
             },
             {
               "$type": "Document",
@@ -240,8 +229,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Helpers\\ForegroundWindowHelper.cs",
               "ViewState": "AgIAABUAAAAAAAAAAADgvzAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:08:59.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T08:08:59.927Z"
             },
             {
               "$type": "Document",
@@ -253,8 +241,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\ClipboardDataVisitor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T02:57:36.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:57:36.581Z"
             },
             {
               "$type": "Document",
@@ -266,8 +253,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\ClipboardDataRepository.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T02:57:19.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:57:19.544Z"
             },
             {
               "$type": "Document",
@@ -279,8 +265,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\ClipboardDataRecord.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T02:56:43.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:56:43.455Z"
             },
             {
               "$type": "Document",
@@ -292,8 +277,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\ClipboardDataKeeper.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAApwBwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:05:43.295Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T08:05:43.295Z"
             },
             {
               "$type": "Document",
@@ -305,8 +289,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\ClipboardData\\ClipboardContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:02:58.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T08:02:58.146Z"
             },
             {
               "$type": "Document",
@@ -318,8 +301,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\ClipboardDataProcessVisitor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T02:57:00.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:57:00.371Z"
             },
             {
               "$type": "Document",
@@ -331,8 +313,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\ForegroundWindowInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:15:06.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T08:15:06.59Z"
             },
             {
               "$type": "Document",
@@ -344,8 +325,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\DebugClipboardDataVisitor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:35:46.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T08:35:46.285Z"
             },
             {
               "$type": "Document",
@@ -357,8 +337,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\IClipboardDataVisitor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T03:35:23.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T03:35:23.269Z"
             },
             {
               "$type": "Document",
@@ -370,8 +349,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\ForegroundWindowHistory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:23:22.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T08:23:22.651Z"
             },
             {
               "$type": "Document",
@@ -383,8 +361,7 @@
               "RelativeToolTip": "SaveClipboard.Core\\Visitors\\IClipboardDataRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T02:57:56.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:57:56.25Z"
             },
             {
               "$type": "Document",
@@ -412,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "SaveClipboard.csproj",
               "DocumentMoniker": "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.Core\\SaveClipboard.csproj",
               "RelativeDocumentMoniker": "SaveClipboard.Core\\SaveClipboard.csproj",
@@ -420,24 +397,11 @@
               "RelativeToolTip": "SaveClipboard.Core\\SaveClipboard.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-24T02:50:42.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:50:42.61Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "gitignore",
-              "DocumentMoniker": "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.Core\\gitignore",
-              "RelativeDocumentMoniker": "SaveClipboard.Core\\gitignore",
-              "ToolTip": "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.Core\\gitignore",
-              "RelativeToolTip": "SaveClipboard.Core\\gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-01-24T03:35:22.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "NativeMethod.cs",
               "DocumentMoniker": "C:\\VsWorkSpace\\SaveClipboard\\SaveClipboard.Core\\Native\\NativeMethod.cs",
               "RelativeDocumentMoniker": "SaveClipboard.Core\\Native\\NativeMethod.cs",
@@ -449,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "Microsoft.NET.TargetFrameworkInference.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.TargetFrameworkInference.targets",
               "RelativeDocumentMoniker": "..\\..\\Program Files\\dotnet\\sdk\\5.0.408\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.TargetFrameworkInference.targets",
@@ -461,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "Microsoft.NET.Sdk.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.200-preview.0.25057.12\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.targets",
               "RelativeDocumentMoniker": "..\\..\\Program Files\\dotnet\\sdk\\9.0.200-preview.0.25057.12\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.targets",
