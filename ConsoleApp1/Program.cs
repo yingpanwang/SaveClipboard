@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 
 using FlaUI.Core;
 using FlaUI.UIA3;
@@ -21,7 +21,7 @@ class Program
     }
 }
 
-public class Cs : ClipboardDataVisitor
+public sealed class Cs : ClipboardDataVisitor
 {
     private ClipboardContext _context;
 
