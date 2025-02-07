@@ -68,6 +68,9 @@ public static partial class NativeMethod
     [DllImport("user32.dll", SetLastError = true)]
     internal static extern bool GetMessage(out MSG lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax);
 
+    [DllImport("user32.dll")]
+    internal static extern bool PeekMessage(out MSG lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax, uint wRemoveMsg);
+
     /// <summary>
     /// 向指定窗口发送消息。
     /// </summary>

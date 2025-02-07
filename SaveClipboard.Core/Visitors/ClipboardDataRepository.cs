@@ -75,4 +75,32 @@ public class ClipboardDataRepository(IDbConnection dbConnection) : IClipboardDat
 
         return id;
     }
+
+    public async Task<IEnumerable<ClipboardDataRecord>> QueryClipboardDataRecords()
+    {
+        return await _dbConnection.QueryAsync<ClipboardDataRecord>("""
+            SELECT
+                id,
+                createtime,
+                datatype,
+                wndid,
+                datavalue
+            FROM clipboarddatarecord
+            ORDER BY createtime DESC
+        """);
+    }
+
+    public async Task<IEnumerable<ForegroundWindowHistory>> QueryForegroundWindowInfos()
+    {
+        return await _dbConnection.QueryAsync<ForegroundWindowHistory>("""
+            SELECT
+                id,
+                createtime,
+                title,
+                classname,
+                executablepath
+            FROM foregroundwindowhistory
+            ORDER BY createtime DESC
+        """);
+    }
 }

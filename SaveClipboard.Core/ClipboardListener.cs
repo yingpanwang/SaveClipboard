@@ -1,12 +1,12 @@
 using SaveClipboard;
 
-public sealed class ClipboardListener : IDisposable
+public class ClipboardListener : IDisposable
 {
-    const uint WM_CLIPBOARDUPDATE = 0x031D;
-    const uint WU_QUIT = 0x0012;
+    protected const uint WM_CLIPBOARDUPDATE = 0x031D;
+    protected const uint WU_QUIT = 0x0012;
 
-    IntPtr hwnd;
-    IEnumerable<IClipboardDataVisitor> visitors = [];
+    protected IntPtr hwnd;
+    protected IEnumerable<IClipboardDataVisitor> visitors = [];
 
     public ClipboardListener(IntPtr winHandle, IEnumerable<IClipboardDataVisitor>? visitors = null)
     {
@@ -54,7 +54,7 @@ public sealed class ClipboardListener : IDisposable
         }
     }
 
-    IntPtr CreateHiddenWindow()
+    protected virtual IntPtr CreateHiddenWindow()
     {
         // 定义窗口过程委托
         WndProcDelegate wndProcDelegate = WndProc;
@@ -103,7 +103,7 @@ public sealed class ClipboardListener : IDisposable
     }
 
     // 定义窗口过程委托
-    private delegate IntPtr WndProcDelegate(IntPtr hwnd, uint msg, IntPtr wParam, IntPtr lParam);
+    protected delegate IntPtr WndProcDelegate(IntPtr hwnd, uint msg, IntPtr wParam, IntPtr lParam);
 
     public void Dispose()
     {

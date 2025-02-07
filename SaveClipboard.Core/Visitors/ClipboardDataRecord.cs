@@ -1,8 +1,6 @@
-using System;
-
 namespace SaveClipboard.Visitors;
 
-internal record ClipboardDataRecord
+public record ClipboardDataRecord
 {
     /*
         CREATE TABLE clipboarddatarecord(

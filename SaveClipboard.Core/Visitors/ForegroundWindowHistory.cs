@@ -1,9 +1,8 @@
 namespace SaveClipboard.Visitors;
 
-internal record ForegroundWindowHistory
+public record ForegroundWindowHistory
 {
-
-    /* 
+    /*
         CREATE TABLE foregroundwindowhistory(
             id integer GENERATED ALWAYS AS IDENTITY NOT NULL,
             createtime timestamp without time zone,

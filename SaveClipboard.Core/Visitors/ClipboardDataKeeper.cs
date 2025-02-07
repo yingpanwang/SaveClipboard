@@ -2,7 +2,7 @@ using System.Threading.Channels;
 
 namespace SaveClipboard.Visitors;
 
-internal sealed class ClipboardDataKeeper : ClipboardDataVisitor, IDisposable
+public sealed class ClipboardDataKeeper : ClipboardDataVisitor, IDisposable
 {
     private ClipboardData? _lastClipboardData;
 

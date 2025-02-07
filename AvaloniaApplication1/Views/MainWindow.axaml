@@ -1,0 +1,64 @@
+<Window
+    x:Class="AvaloniaApplication1.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="using:AvaloniaApplication1.Views"
+    xmlns:vm="using:AvaloniaApplication1.ViewModels"
+    Title="AvaloniaApplication1"
+    Width="600"
+    Height="800"
+    d:DesignHeight="450"
+    d:DesignWidth="400"
+    x:DataType="vm:MainWindowViewModel"
+    Background="Transparent"
+    ExtendClientAreaToDecorationsHint="True"
+    Icon="/Assets/avalonia-logo.ico"
+    TransparencyLevelHint="AcrylicBlur"
+    mc:Ignorable="d">
+
+  <Design.DataContext>
+    <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+    <vm:MainWindowViewModel />
+    <vm:ClipboardHistoryViewModel />
+  </Design.DataContext>
+  <DockPanel>
+
+    <Grid
+        x:Name="Root"
+        Margin="5"
+        RowDefinitions="Auto, *, Auto">
+      <TextBlock Text="剪切板历史" />
+
+      <ScrollViewer Grid.Row="1">
+        <ItemsControl ItemsSource="{Binding ClipboardDataItems}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate DataType="vm:ClipboardDataItemViewModel">
+              <Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <Expander.Header>
+                  <v:ClipboardDataItemView />
+                </Expander.Header>
+                <Grid>
+                  <StackPanel>
+                    <TextBlock Text="{Binding Content}" TextWrapping="Wrap" />
+                  </StackPanel>
+                </Grid>
+              </Expander>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </ScrollViewer>
+      <Grid Grid.Row="2" ColumnDefinitions="*">
+        <Button
+            Grid.Column="0"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center"
+            Content="开始监听" />
+      </Grid>
+    </Grid>
+  </DockPanel>
+</Window>
