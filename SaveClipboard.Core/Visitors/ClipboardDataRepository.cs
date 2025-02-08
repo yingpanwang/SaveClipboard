@@ -86,7 +86,7 @@ public class ClipboardDataRepository(IDbConnection dbConnection) : IClipboardDat
                 wndid,
                 datavalue
             FROM clipboarddatarecord
-            ORDER BY createtime DESC
+            ORDER BY createtime DESC;
         """);
     }
 

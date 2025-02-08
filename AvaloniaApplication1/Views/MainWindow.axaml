@@ -7,15 +7,12 @@
     xmlns:v="using:AvaloniaApplication1.Views"
     xmlns:vm="using:AvaloniaApplication1.ViewModels"
     Title="AvaloniaApplication1"
-    Width="600"
-    Height="800"
+    Width="800"
+    Height="700"
     d:DesignHeight="450"
     d:DesignWidth="400"
     x:DataType="vm:MainWindowViewModel"
-    Background="Transparent"
-    ExtendClientAreaToDecorationsHint="True"
     Icon="/Assets/avalonia-logo.ico"
-    TransparencyLevelHint="AcrylicBlur"
     mc:Ignorable="d">
 
   <Design.DataContext>
@@ -24,10 +21,66 @@
             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
     <vm:MainWindowViewModel />
-    <vm:ClipboardHistoryViewModel />
   </Design.DataContext>
-  <DockPanel>
-
+  <SplitView
+      CompactPaneLength="50"
+      DisplayMode="CompactInline"
+      IsPaneOpen="{Binding OpenSplitView}"
+      OpenPaneLength="200">
+    <SplitView.Pane>
+      <DockPanel>
+        <Grid
+            ColumnDefinitions="*,50"
+            DockPanel.Dock="Top"
+            RowDefinitions="*">
+          <TextBlock
+              Grid.Column="0"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Text="菜单" />
+          <Button
+              Grid.Column="1"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Command="{Binding ChangeSplitView}"
+              Content="{Binding OpenSplitViewButtonContent}"
+              DockPanel.Dock="Right" />
+        </Grid>
+        <Grid
+            Margin="15"
+            VerticalAlignment="Center"
+            ColumnDefinitions="*"
+            RowDefinitions="Auto,Auto,Auto">
+          <Button
+              Grid.Row="0"
+              Grid.Column="0"
+              HorizontalAlignment="Stretch"
+              HorizontalContentAlignment="Center"
+              Command="{Binding ShowSettingsWindow}"
+              Content="设置"
+              IsVisible="{Binding OpenSplitView}" />
+          <Button
+              Grid.Row="1"
+              Grid.Column="0"
+              HorizontalAlignment="Stretch"
+              HorizontalContentAlignment="Center"
+              Content="关于"
+              IsVisible="{Binding OpenSplitView}" />
+          <Button
+              Grid.Row="2"
+              Grid.Column="0"
+              HorizontalAlignment="Stretch"
+              HorizontalContentAlignment="Center"
+              Content="退出"
+              IsVisible="{Binding OpenSplitView}" />
+        </Grid>
+      </DockPanel>
+    </SplitView.Pane>
+    <ScrollViewer>
+      <v:ClipboardHistoryView />
+    </ScrollViewer>
+  </SplitView>
+  <!--<DockPanel>
     <Grid
         x:Name="Root"
         Margin="5"
@@ -60,5 +113,5 @@
             Content="开始监听" />
       </Grid>
     </Grid>
-  </DockPanel>
+  </DockPanel>-->
 </Window>

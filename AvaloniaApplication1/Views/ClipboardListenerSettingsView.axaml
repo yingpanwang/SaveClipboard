@@ -1,0 +1,40 @@
+<UserControl
+    x:Class="AvaloniaApplication1.Views.ClipboardListenerSettingsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="using:AvaloniaApplication1.Views"
+    xmlns:vm="using:AvaloniaApplication1.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="500"
+    x:DataType="vm:ClipboardListenerSettingsViewModel"
+    mc:Ignorable="d">
+  <DockPanel Margin="15">
+    <Grid
+        ColumnDefinitions="80,*"
+        DockPanel.Dock="Top"
+        RowDefinitions="80">
+      <TextBlock
+          Grid.Row="0"
+          Grid.Column="0"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          Text="执行路径" />
+      <TextBox
+          Grid.Row="0"
+          Grid.Column="1"
+          Margin="18"
+          Text="{Binding ExecutablePath}" />
+    </Grid>
+    <Button
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Command="{Binding TestListeningCommand}"
+        Content="测试监听"
+        DockPanel.Dock="Bottom" />
+    <ScrollViewer>
+      <ListBox ItemsSource="{Binding Outputs}" />
+    </ScrollViewer>
+  </DockPanel>
+</UserControl>

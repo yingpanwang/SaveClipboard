@@ -24,11 +24,26 @@
           VerticalAlignment="Center"
           Text="{Binding Content}"
           TextWrapping="WrapWithOverflow" />
-      <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" RowDefinitions="Auto">
-        <Button Grid.Column="0" Content="文件" />
-        <Button Grid.Column="1" Content="图片" />
-        <Button Grid.Column="2" Content="链接" />
-        <Button Grid.Column="3" Content="更多 ^" />
+      <Grid
+          Background="Transparent"
+          ColumnDefinitions="Auto,Auto,Auto,Auto"
+          RowDefinitions="Auto">
+        <Button
+            Grid.Column="0"
+            Background="Transparent"
+            Content="文件" />
+        <Button
+            Grid.Column="1"
+            Background="Transparent"
+            Content="图片" />
+        <Button
+            Grid.Column="2"
+            Background="Transparent"
+            Content="链接" />
+        <Button
+            Grid.Column="3"
+            Background="Transparent"
+            Content="更多 ^" />
       </Grid>
     </StackPanel>
   </Grid>

@@ -10,6 +10,8 @@ namespace AvaloniaApplication1;
 
 public partial class App : Application
 {
+    public static MainWindow? MainWindow { get; private set; }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -23,10 +25,12 @@ public partial class App : Application
             // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
             DisableAvaloniaDataAnnotationValidation();
 
-            desktop.MainWindow = new MainWindow
+            MainWindow = new MainWindow
             {
                 DataContext = new MainWindowViewModel(),
             };
+
+            desktop.MainWindow = MainWindow;
         }
 
         base.OnFrameworkInitializationCompleted();

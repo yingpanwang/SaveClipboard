@@ -10,9 +10,7 @@ using SaveClipboard;
 sealed class Program
 {
     public static async Task<int> Main(string[] args) => await new CliApplicationBuilder()
-        .AddCommand<GreetCommand>()
         .AddCommandsFromThisAssembly()
-        .SetExecutableName("MyPrograme")
         .Build()
         .RunAsync();
 
@@ -41,19 +39,6 @@ sealed class Program
             cmdText = await Console.In.ReadLineAsync();
         }
         while (!string.IsNullOrWhiteSpace(cmdText));
-    }
-}
-
-[Command("greet")]
-public class GreetCommand : ICommand
-{
-    [CommandOption("name", 'n', Description = "你的名字", IsRequired = true)]
-    public string Name { get; set; } = "";
-
-    public ValueTask ExecuteAsync(IConsole console)
-    {
-        console.Output.WriteLine($"你好, {Name}!");
-        return default;
     }
 }
 
@@ -94,6 +79,7 @@ public sealed class Cs : ClipboardDataVisitor
         var window = app.GetMainWindow(automation);
 
         var ele = window.FindFirstByXPath("""/Pane[3]/Pane/Pane[1]/Pane[2]/Pane[1]/ToolBar[1]/Pane/Group/Edit""");
+
         if (ele != null)
         {
             string url = ele.Patterns.LegacyIAccessible.Pattern.Value;

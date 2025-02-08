@@ -1,3 +1,4 @@
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Npgsql;
@@ -36,9 +37,12 @@ public partial class ClipboardHistoryViewModel : ViewModelBase
 
             foreach (var item in r)
             {
-                ClipboardDataItems.Add(new ClipboardDataItemViewModel()
+                await Dispatcher.UIThread.InvokeAsync(() =>
                 {
-                    Content = item.DataValue //.Substring(0, Math.Min(item.DataValue.Length - 1, 20))
+                    ClipboardDataItems.Add(new ClipboardDataItemViewModel()
+                    {
+                        Content = item.DataValue //.Substring(0, Math.Min(item.DataValue.Length - 1, 20))
+                    });
                 });
             }
         }, TaskCreationOptions.LongRunning);

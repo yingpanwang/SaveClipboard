@@ -29,4 +29,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\..\VsWorkSpace\SaveClipboard\SaveClipboard.Core\SaveClipboard.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
 </Project>
